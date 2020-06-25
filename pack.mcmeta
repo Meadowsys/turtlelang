@@ -1,0 +1,13 @@
+{
+   "pack": {
+      "pack_format": 5,
+      "description": "TurtleLang makes its debut"
+   },
+   "language": {
+      "sdf": {
+         "name": "TurtleLang",
+         "region": "United States",
+         "bidirectional": false
+      }
+   }
+}
