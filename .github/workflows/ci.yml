@@ -40,5 +40,5 @@ jobs:
 
       - name: test that this thingie worked
         run: |
-          echo "${{ fromJson(steps.mcversion.outputs..mcversion).latest.release }}"
-          echo "${{ fromJson(steps.mcversion.outputs..mcversion).latest.snapshot }}"
+          echo "${{ fromJson(steps.mcversion.outputs.mcversion).latest.release }}"
+          echo "${{ fromJson(steps.mcversion.outputs.mcversion).latest.snapshot }}"
