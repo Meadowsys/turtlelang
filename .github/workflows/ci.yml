@@ -24,8 +24,8 @@ jobs:
 #      - name: install dependencies
 #        run: pnpm i
 
-      - name: get minecraft version info
-        id: mcversion
+      - name: get minecraft version info (json)
+        id: mcversion_json
         run: |
           wget $LAUNCHER_MANIFEST_URL
           content=`cat version_manifest.json`
@@ -34,11 +34,12 @@ jobs:
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
           # end of multiline json
-          echo "::set-output name=mcversion::$content"
+          echo "::set-output name=mcversion_json::$content"
         env:
           LAUNCHER_MANIFEST_URL: https://launchermeta.mojang.com/mc/game/version_manifest.json
 
-      - name: test that this thingie worked
+      - name: get the versions out of the json
+        id: mcversion
         run: |
-          echo "${{ fromJson(steps.mcversion.outputs.mcversion).latest.release }}"
-          echo "${{ fromJson(steps.mcversion.outputs.mcversion).latest.snapshot }}"
+          echo "::set-output name=release::${{ fromJson(steps.mcversion_json.outputs.mcversion_json).latest.release }}"
+          echo "::set-output name=snapshot::${{ fromJson(steps.mcversion_json.outputs.mcversion_json).latest.snapshot }}"
