@@ -1,0 +1,44 @@
+---
+name: ci
+on:
+- push
+
+jobs:
+  build:
+    name: build resourcepack
+    runs-on: ubuntu-20.04
+    steps:
+#      - name: checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: setup node
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: "14"
+#
+#      - name: Setup pnpm
+#        uses: pnpm/action-setup@v1.2.1
+#        with:
+#          version: 5.9.0
+#
+#      - name: install dependencies
+#        run: pnpm i
+
+      - name: get minecraft version info
+        id: mcversion
+        run: |
+          wget $LAUNCHER_MANIFEST_URL
+          content=`cat version_manifest.json`
+          # handle multi line json
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          # end of multiline json
+          echo "::set-output name=mcversion::$content"
+        env:
+          LAUNCHER_MANIFEST_URL: https://launchermeta.mojang.com/mc/game/version_manifest.json
+
+      - name: test that this thingie worked
+        run: |
+          echo "${{ fromJson(steps.mcversion.outputs..mcversion).latest.release }}"
+          echo "${{ fromJson(steps.mcversion.outputs..mcversion).latest.snapshot }}"
