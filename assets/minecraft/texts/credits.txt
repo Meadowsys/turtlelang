@@ -424,7 +424,7 @@
 [C]§f============
 [C]§eTranslator for TurtleLang (United States)
 [C]§f============
-§f          Alexander Liu (PCelestia)
+§f          Alexander Liu (autumnblazey on Github)
 §f          haha i put this here lol
 
 
