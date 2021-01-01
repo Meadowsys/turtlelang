@@ -1,0 +1,45 @@
+---
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+
+jobs:
+  build:
+    name: build resourcepack
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: checkout this repo
+        uses: actions/checkout@v2
+        with:
+          path: turtlelang
+
+      - name: checkout minelittlepony repo
+        uses: actions/checkout@v2
+        with:
+          repository: minelittlepony/minelittlepony
+          path: minelittlepony
+
+      - name: checkout hdskins repo
+        uses: actions/checkout@v2
+        with:
+          repository: minelittlepony/hdskins
+          path: hdskins
+
+      - name: checkout presence footsteps repo
+        uses: actions/checkout@v2
+        with:
+          repository: sollace/presence-footsteps
+          path: presence-footsteps
+
+      - name: setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 15
+
+        # yes this pack has a build process lol
+        # automate the lowercasing of the things
+      - name: build pack
+        run: node scripts/build
