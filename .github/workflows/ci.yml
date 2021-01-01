@@ -1,4 +1,5 @@
 ---
+name: ci
 on:
   push:
     branches:
@@ -42,4 +43,4 @@ jobs:
         # yes this pack has a build process lol
         # automate the lowercasing of the things
       - name: build pack
-        run: node scripts/build
+        run: node turtlelang/scripts/build
