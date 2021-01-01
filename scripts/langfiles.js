@@ -1,4 +1,5 @@
 // @ts-check
+
 /**
  * @type {{
  *    [path: string]: {
@@ -20,6 +21,11 @@ const langs = {
       repopath: "presence-footsteps",
       langpath: "src/main/resources/assets/presencefootsteps/lang/en_us.json"
    }
-}
+};
 
-module.exports = langs;
+const minecraftlangpath = "minecraft/assets/minecraft/lang/en_us.json";
+
+module.exports = {};
+
+module.exports.langs = langs;
+module.exports.minecraftlangpath = minecraftlangpath;

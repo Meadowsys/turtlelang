@@ -35,6 +35,15 @@ jobs:
           repository: sollace/presence-footsteps
           path: presence-footsteps
 
+      - name: Download Minecraft jar
+        uses: autumnblazey/action-get-mc-jar@v1
+        with:
+          filename: minecraft.jar
+
+      - name: get the json file out of jar
+        run: |
+          7z e -y -o minecraft -- minecraft.jar
+
       - name: setup node
         uses: actions/setup-node@v2
         with:
@@ -42,5 +51,6 @@ jobs:
 
         # yes this pack has a build process lol
         # automate the lowercasing of the things
+        # because its error prone to do manually
       - name: build pack
         run: node turtlelang/scripts/build
