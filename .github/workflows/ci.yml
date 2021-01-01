@@ -42,7 +42,7 @@ jobs:
 
       - name: get the json file out of jar
         run: |
-          7z e -y -o minecraft -- minecraft.jar
+          7z e -y -ominecraft -- minecraft.jar
 
       - name: setup node
         uses: actions/setup-node@v2
