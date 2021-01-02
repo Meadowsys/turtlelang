@@ -13,45 +13,40 @@ jobs:
 
     steps:
       - name: checkout this repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.4
         with:
           path: turtlelang
 
       - name: checkout minelittlepony repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.4
         with:
           repository: minelittlepony/minelittlepony
           path: minelittlepony
 
       - name: checkout hdskins repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.4
         with:
           repository: minelittlepony/hdskins
           path: hdskins
 
       - name: checkout presence footsteps repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.4
         with:
           repository: sollace/presence-footsteps
           path: presence-footsteps
 
       - name: Download Minecraft jar
-        uses: autumnblazey/action-get-mc-jar@v1
+        uses: autumnblazey/action-get-mc-jar@v1.0.1
         with:
           filename: minecraft.jar
+          mcversion: "1.16.4"
 
       - name: get the json file out of jar
         run: |
           7z e -y -ominecraft -- minecraft.jar
 
-      - name: pwd and other stuffsi
-        run: |
-          pwd
-          ls
-          ls minecraft/assets || NOPE THERE IS NONE OWIEJFOWIEJFOIJWEFPOWHEOFIH
-
       - name: setup node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v2.1.4
         with:
           node-version: 15
 

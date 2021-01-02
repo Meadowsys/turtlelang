@@ -23,7 +23,7 @@ const langs = {
    }
 };
 
-const minecraftlangpath = "assets/minecraft/lang/en_us.json";
+const minecraftlangpath = "en_us.json";
 
 module.exports = {};
 
