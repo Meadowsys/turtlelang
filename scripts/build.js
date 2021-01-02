@@ -4,7 +4,8 @@ const { langs, minecraftlangpath } = require("./langfiles");
 
 const all = {};
 
-const minecraftlang = require(minecraftlangpath);
+const minecraftlang = require("../../" + minecraftlangpath);
+//                           ^ out of main repo    ^ into minecraft's folder
 Object.assign(all, minecraftlang);
 
 Object.values(langs).forEach(lang => {
