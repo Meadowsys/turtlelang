@@ -40,6 +40,12 @@ jobs:
         with:
           filename: minecraft.jar
 
+      - name: pwd and other stuffsi
+        run: |
+          pwd
+          ls
+          ls minecraft
+
       - name: get the json file out of jar
         run: |
           7z e -y -ominecraft -- minecraft.jar
