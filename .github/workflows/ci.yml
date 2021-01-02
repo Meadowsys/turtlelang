@@ -48,7 +48,7 @@ jobs:
         run: |
           pwd
           ls
-          ls minecraft
+          ls minecraft/assets || NOPE THERE IS NONE OWIEJFOWIEJFOIJWEFPOWHEOFIH
 
       - name: setup node
         uses: actions/setup-node@v2
