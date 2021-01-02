@@ -43,6 +43,9 @@ jobs:
       - name: get the json file out of jar
         run: |
           7z e -y -ominecraft -- minecraft.jar
+          # this for debug
+          ls
+          ls minecraft
 
       - name: setup node
         uses: actions/setup-node@v2
